@@ -71,12 +71,13 @@ function setup() {
 
 function draw() {
   background(180);
+  text("Score: "+ score, 500,50);
   if(gameState === PLAY){
     
   ground.velocityX = -(6 + 3*score/100);
 
   score = score + Math.round(getFrameRate()/30);
-  text("Score: "+ score, 500,50);
+  
   
   if(keyDown("space")) {
     trex.velocityY = -10;
