@@ -4,7 +4,7 @@ var ground, invisibleGround, groundImage;
 var cloudsGroup, cloudImage;
 var obstaclesGroup, obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, obstacle6;
 
-var score;
+var score=0
 var PLAY = 1;
 var END = 0;
 var gameState = PLAY;
@@ -75,7 +75,7 @@ function draw() {
     
   ground.velocityX = -(6 + 3*score/100);
 
-  score = score + Math.round(getFrameRate()/60);
+  score = score + Math.round(getFrameRate()/30);
   text("Score: "+ score, 500,50);
   
   if(keyDown("space")) {
@@ -101,11 +101,10 @@ function draw() {
     }
     
     
-    //if(score%100===0 && score>0){
+    if(score%100===0 && score>0){
       
-     //check_point.play()
- // }
-    }
+     check_point.play()
+  }
   
   else if(gameState === END) {
      gameOver.visible = true;
