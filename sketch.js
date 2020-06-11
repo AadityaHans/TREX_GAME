@@ -105,6 +105,7 @@ function draw() {
       
      check_point.play()
   }
+    }
   
   else if(gameState === END) {
      gameOver.visible = true;
