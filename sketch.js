@@ -11,6 +11,7 @@ var gameState = PLAY;
 
 var gameOver, restart,  gameOver_png, restart_png
 
+var jump, die, check_point
 
 function preload(){
   trex_running = loadAnimation("trex1.png","trex3.png","trex4.png");
@@ -30,6 +31,10 @@ function preload(){
   
   restart_png=loadImage("restart.png")
   gameOver_png=loadImage("gameOver.png")
+  
+  jump=loadSound("jump.mp3")
+  die=loadSound("die.mp3")
+  check_point=loadSound("checkPoint.mp3")
 }
 
 function setup() {
@@ -75,6 +80,7 @@ function draw() {
   
   if(keyDown("space")) {
     trex.velocityY = -10;
+    jump.play()
   }
   
   trex.velocityY = trex.velocityY + 0.8
@@ -91,7 +97,13 @@ function draw() {
      // playSound("jump.mp3");
       gameState = END;
       //playSound("die.mp3");
+      die.play()
     }
+    
+    
+    if(score%100===0 && score>0){
+      
+     check_point.play()
   }
   
   else if(gameState === END) {
