@@ -103,7 +103,8 @@ function draw() {
     
     if(score%100===0 && score>0){
       
-     check_point.play()
+     check_point.play()}
+    
   }
   
   else if(gameState === END) {
