@@ -93,6 +93,10 @@ function draw() {
   spawnClouds();
   spawnObstacles();
     
+     if(score%100===0 && score>0){
+      
+     check_point.play()}
+    
     if(obstaclesGroup.isTouching(trex)){
      // playSound("jump.mp3");
       gameState = END;
@@ -101,9 +105,7 @@ function draw() {
     }
     
     
-    if(score%100===0 && score>0){
-      
-     check_point.play()}
+   
     
   }
   
@@ -144,7 +146,7 @@ function reset(){
 trex.changeAnimation("running", trex_running);
     
   
-  count = 0;
+  score = 0;
   
 }
 
